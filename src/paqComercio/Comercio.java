@@ -7,17 +7,17 @@ import java.util.Date;
 
 public class Comercio {
 
-    private String nombre;
-    private String direccion;
-    private String cif;
-    private int totalVentas;
+    protected String nombre;
+    protected String direccion;
+    protected String cif;
+    protected int totalVentas;
     private double[][] ventasDiarias;
-    private int nMes;
-    private int nDia;
-    private int [] stock;
-    private int numStock;
-    private Empleado [] empleados;
-    private int numEmpleados;
+    private int nMes=12;
+    private int nDia=31;
+    protected int [] stock;
+    protected int numStock;
+    protected Empleado [] empleados;
+    protected int numEmpleados;
 
 
     public Comercio(){}
@@ -140,13 +140,18 @@ public class Comercio {
             aux.numEmpleados = this.numEmpleados;
             aux.numStock = this.numStock;
 
-            // cambiar este System.arraycopy(this.ventasDiarias,0,aux.ventasDiarias,0,this.ventasDiarias.length);
-            for(int i=0; i<nMes; i++) {
-                for (int j = 0; j < nDia; j++) {
-                    aux.ventasDiarias[i][j] = ventasDiarias[i][j];
-                }
+
+            int [][] myInt = new int[this.ventasDiarias.length][];
+            for(int i = 0; i < this.ventasDiarias.length; i++) {
+                double[] aMatriz = this.ventasDiarias[i];
+                int aLength = aMatriz.length;
+                myInt[i] = new int[aLength];
+                System.arraycopy(aMatriz, 0, myInt[i], 0, aLength);
             }
+
+
             System.arraycopy(this.stock,0, aux.stock,0,this.stock.length);
+
             for (int i = 0; i < this.empleados.length; i++){
                 aux.empleados[i] = empleados[i].copiar();
             }

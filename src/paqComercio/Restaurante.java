@@ -1,31 +1,25 @@
 package paqComercio;
 
-public class Restaurante {
+public class Restaurante extends Comercio{
     private String [] menuDiario;
-    private int  numMenu;
 
+    String cif;
     private int numMesas;
     private int capacidad;
 
-    private Restaurante r1 = new Restaurante();
+
 
     public Restaurante(){}
-    public Restaurante(int numMesas, int numMenu, int capacidad){
+    public Restaurante(String nombre, String direccion,  String cif, int totalVentas,int numEmpleados,int numStockint, int numMesas, int capacidad){
 
-        this.numMenu = numMenu;
+        super(nombre,direccion,cif,totalVentas,numEmpleados,numStockint);
         this.numMesas = numMesas;
         this.capacidad = capacidad;
 
-        menuDiario = new String[numMenu];
+        menuDiario = new String[7];
     }
 
-    public void setMenuDiario(String[] menuDiario) {
-        this.menuDiario = menuDiario;
-    }
 
-    public void setNumMenu(int numMenu) {
-        this.numMenu = numMenu;
-    }
 
     public void setNumMesas(int numMesas) {
         this.numMesas = numMesas;
@@ -35,13 +29,6 @@ public class Restaurante {
         this.capacidad = capacidad;
     }
 
-    public String[] getMenuDiario() {
-        return menuDiario;
-    }
-
-    public int getNumMenu() {
-        return numMenu;
-    }
 
     public int getNumMesas() {
         return numMesas;
@@ -61,12 +48,23 @@ public class Restaurante {
 
         }
         if(o instanceof Restaurante){//comparamos los atributos
-            if(this.numMesas == ((Restaurante) o).numMesas &&
-                    this.capacidad ==((Restaurante) o).capacidad &&
+            if(this.cif == ((Restaurante) o).cif &&
                     super.equals(o)) {
                 return true;
             }return false;
 
         } return  false;
     }
-}
+
+    public void fijarMenuDelDia(int dia, String menu) {
+
+        menuDiario[dia-1] = menu;
+
+    }
+
+    public String verMenuDelDia(int dia){
+
+        return menuDiario[dia-1].toString();
+    }
+
+    }

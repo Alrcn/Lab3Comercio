@@ -30,7 +30,7 @@ public class VehiculoParaReparar extends Vehiculo {
         return averia;
     }
 
-    public boolean isReparado() {
+    public boolean getReparado() {
         return reparado;
     }
 
