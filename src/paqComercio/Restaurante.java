@@ -43,7 +43,7 @@ public class Restaurante extends Comercio{
         return  aux;
     }
     public boolean equals(Object o){
-        if(this.r1 == o){// comparamos la direccion de memoria
+        if(this == o){// comparamos la direccion de memoria
             return true;
 
         }
