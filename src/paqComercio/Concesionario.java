@@ -131,7 +131,7 @@ public class Concesionario extends Comercio {
         }
 
         for (int j = 0; j < this.r.length; j++){
-            aux.r[j] = (VehiculoParaReparar) r[j].copiar();
+            aux.r[j] = (VehiculoParaReparar) r[j].copiar();//
         }
         return aux;
 
